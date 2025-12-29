@@ -100,6 +100,13 @@ def generate_report(df: pd.DataFrame, currency: str):
     print("2. Launch targeted weekend promotions")
     print("3. Extend evening operating hours\n")
 
+    print("\n" + "=" * 50)
+    print("END OF REPORT".center(50))
+    print("=" * 50 + "\n")
+
+    # Call your analysis / visualization logic here
+    print("✅ Super Market Sales dashboard loaded successfully")
+
 
 # --------------------------------------------------
 # CLI Handling

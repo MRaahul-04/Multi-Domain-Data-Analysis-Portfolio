@@ -372,7 +372,7 @@ python dashboards/finance_dashboard.py
 
 ---
 
-## 📈 Visualizations
+## 📈 Visualizations 
 
 * All charts are **exported as PNG** under `visualizations/`
 * Generated using **Seaborn & Matplotlib**

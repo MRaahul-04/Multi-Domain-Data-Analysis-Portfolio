@@ -341,31 +341,31 @@ Each project includes a **CLI dashboard** for quick insights.
 ### ▶ Supermarket Sales
 
 ```bash
-python src/supermarket_dashboard.py
+python dashboards/supermarket_dashboard.py
 ```
 
 ### ▶ Student Performance
 
 ```bash
-python src/student_dashboard.py
+python dashboards/student_dashboard.py
 ```
 
 ### ▶ Weather Trends
 
 ```bash
-python src/weather_dashboard.py
+python dashboards/weather_dashboard.py
 ```
 
 ### ▶ Healthcare (COVID)
 
 ```bash
-python src/healthcare_dashboard.py
+python dashboards/healthcare_dashboard.py
 ```
 
 ### ▶ Finance / Stock Market
 
 ```bash
-python src/finance_dashboard.py
+python dashboards/finance_dashboard.py
 ```
 
 📌 All dashboards accept `--data` arguments if custom paths are needed.

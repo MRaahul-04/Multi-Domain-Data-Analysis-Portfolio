@@ -5,18 +5,23 @@ Author: Rahul Mahakal
 """
 
 import argparse
-from pathlib import Path
 from textwrap import fill
 import pandas as pd
+import sys
+from pathlib import Path
 
-from finance_stock_market_analysis.preprocessing import preprocess_finance_data
-from finance_stock_market_analysis.analysis import (
+# Add project root to Python path
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(PROJECT_ROOT / "src"))
+
+from src.finance_stock_market_analysis.preprocessing import preprocess_finance_data
+from src.finance_stock_market_analysis.analysis import (
     overview_metrics,
     equity_by_gender,
     equity_by_age_group,
 )
-from finance_stock_market_analysis.insights import generate_finance_insights
-from finance_stock_market_analysis.report_generator import (
+from src.finance_stock_market_analysis.insights import generate_finance_insights
+from src.finance_stock_market_analysis.report_generator import (
     overview_text,
     recommendations,
 )

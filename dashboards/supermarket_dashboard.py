@@ -1,13 +1,14 @@
 import argparse
-from pathlib import Path
 import pandas as pd
+import sys
+from pathlib import Path
 
 # --------------------------------------------------
 # Resolve project paths
 # --------------------------------------------------
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATASETS_DIR = PROJECT_ROOT / "datasets"
-
+sys.path.append(str(PROJECT_ROOT / "src"))
 
 # --------------------------------------------------
 # Data Processing

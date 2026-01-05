@@ -5,17 +5,22 @@ Author: Rahul Mahakal
 """
 
 import argparse
-from pathlib import Path
 from textwrap import fill
 import pandas as pd
+import sys
+from pathlib import Path
 
-from weather_trends_analysis.preprocessing import preprocess_weather_data
-from weather_trends_analysis.analysis import (
+# Add project root to Python path
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(PROJECT_ROOT / "src"))
+
+from src.weather_trends_analysis.preprocessing import preprocess_weather_data
+from src.weather_trends_analysis.analysis import (
     temperature_overview,
     yearly_temperature_trend,
 )
-from weather_trends_analysis.insights import generate_weather_insights
-from weather_trends_analysis.report_generator import (
+from src.weather_trends_analysis.insights import generate_weather_insights
+from src.weather_trends_analysis.report_generator import (
     overview_text,
     recommendations,
 )

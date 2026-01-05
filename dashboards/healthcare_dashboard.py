@@ -5,18 +5,23 @@ Author: Rahul Mahakal
 """
 
 import argparse
-from pathlib import Path
 from textwrap import fill
 import pandas as pd
+import sys
+from pathlib import Path
 
-from healthcare_covid_analysis.preprocessing import preprocess_covid_data
-from healthcare_covid_analysis.analysis import (
+# Add project root to Python path
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(PROJECT_ROOT / "src"))
+
+from src.healthcare_covid_analysis.preprocessing import preprocess_covid_data
+from src.healthcare_covid_analysis.analysis import (
     overview_metrics,
     mortality_by_age_group,
     comorbidity_mortality,
 )
-from healthcare_covid_analysis.insights import generate_healthcare_insights
-from healthcare_covid_analysis.report_generator import (
+from src.healthcare_covid_analysis.insights import generate_healthcare_insights
+from src.healthcare_covid_analysis.report_generator import (
     overview_text,
     recommendations,
 )

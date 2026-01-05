@@ -5,18 +5,22 @@ Author: Rahul Mahakal
 """
 
 import argparse
-import pandas as pd
-from pathlib import Path
 from textwrap import fill
 import pandas as pd
+import sys
+from pathlib import Path
 
-from student_performance_analysis.preprocessing import preprocess_student_data
-from student_performance_analysis.analysis import (
+# Add project root to Python path
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(PROJECT_ROOT / "src"))
+
+from src.student_performance_analysis.preprocessing import preprocess_student_data
+from src.student_performance_analysis.analysis import (
     overview_metrics,
     subject_average_scores,
 )
-from student_performance_analysis.insights import generate_insights
-from student_performance_analysis.report_generator import (
+from src.student_performance_analysis.insights import generate_insights
+from src.student_performance_analysis.report_generator import (
     overview_text,
     recommendations,
 )

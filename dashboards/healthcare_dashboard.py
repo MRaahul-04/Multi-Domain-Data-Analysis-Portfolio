@@ -10,6 +10,9 @@ import pandas as pd
 import sys
 from pathlib import Path
 
+# --------------------------------------------------
+# Resolve project paths
+# --------------------------------------------------
 # Add project root to Python path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT / "src"))
@@ -34,13 +37,17 @@ def print_header(title: str):
     print(title.center(50))
     print("=" * 50)
 
-
+# --------------------------------------------------
+# Data loading
+# --------------------------------------------------
 def load_data(csv_path: Path) -> pd.DataFrame:
     if not csv_path.exists():
         raise FileNotFoundError(f"Dataset not found: {csv_path}")
     return pd.read_csv(csv_path)
 
-
+# --------------------------------------------------
+# Dashboard Logic
+# --------------------------------------------------
 def run_dashboard(data_path: str):
     df = load_data(Path(data_path))
     df = preprocess_covid_data(df)
@@ -49,6 +56,9 @@ def run_dashboard(data_path: str):
     insights = generate_healthcare_insights(df)
     age_risk = mortality_by_age_group(df)
 
+    # --------------------------------------------------
+    # PRINT REPORT
+    # --------------------------------------------------
     print_header("COVID HEALTHCARE ANALYSIS REPORT")
 
     # ---------------- OVERVIEW ----------------
@@ -94,7 +104,9 @@ def run_dashboard(data_path: str):
     # Call your analysis / visualization logic here
     print("✅ Healthcare-Covid-19 dashboard loaded successfully")
 
-
+# --------------------------------------------------
+# Entry Point
+# --------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
         description="Healthcare COVID Analysis CLI Dashboard"

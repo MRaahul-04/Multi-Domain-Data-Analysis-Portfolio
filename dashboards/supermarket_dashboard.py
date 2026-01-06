@@ -11,7 +11,7 @@ DATASETS_DIR = PROJECT_ROOT / "datasets"
 sys.path.append(str(PROJECT_ROOT / "src"))
 
 # --------------------------------------------------
-# Data Processing
+# Processing data
 # --------------------------------------------------
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     df["Date"] = pd.to_datetime(df["Date"])

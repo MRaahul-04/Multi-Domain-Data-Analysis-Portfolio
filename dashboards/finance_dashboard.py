@@ -10,6 +10,9 @@ import pandas as pd
 import sys
 from pathlib import Path
 
+# --------------------------------------------------
+# Resolve project paths
+# --------------------------------------------------
 # Add project root to Python path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT / "src"))
@@ -32,13 +35,17 @@ def print_header(title: str):
     print(title.center(50))
     print("=" * 50)
 
-
+# --------------------------------------------------
+# Data loading
+# --------------------------------------------------
 def load_data(csv_path: Path) -> pd.DataFrame:
     if not csv_path.exists():
         raise FileNotFoundError(f"Dataset not found: {csv_path}")
     return pd.read_csv(csv_path)
 
-
+# --------------------------------------------------
+# Dashboard Logic
+# --------------------------------------------------
 def run_dashboard(data_path: str):
     df = load_data(Path(data_path))
     df = preprocess_finance_data(df)
@@ -56,6 +63,10 @@ def run_dashboard(data_path: str):
     gender_equity = equity_by_gender(df)
     top_gender = gender_equity.idxmax()
 
+
+    # --------------------------------------------------
+    # PRINT REPORT
+    # --------------------------------------------------
     print_header("FINANCE & STOCK MARKET ANALYSIS REPORT")
 
     # ---------------- OVERVIEW ----------------
@@ -103,6 +114,9 @@ def run_dashboard(data_path: str):
     # Call your analysis / visualization logic here
     print("✅ Finance Stock-Market dashboard loaded successfully")
 
+# --------------------------------------------------
+# Entry Point
+# --------------------------------------------------
 
 def main():
     parser = argparse.ArgumentParser(

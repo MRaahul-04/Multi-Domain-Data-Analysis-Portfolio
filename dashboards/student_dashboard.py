@@ -10,6 +10,9 @@ import pandas as pd
 import sys
 from pathlib import Path
 
+# --------------------------------------------------
+# Resolve project paths
+# --------------------------------------------------
 # Add project root to Python path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT / "src"))
@@ -25,7 +28,9 @@ from src.student_performance_analysis.report_generator import (
     recommendations,
 )
 
-
+# --------------------------------------------------
+# Data and Dashboard Logic
+# --------------------------------------------------
 def print_header(title: str):
     print("\n" + "=" * 50)
     print(title.center(50))
@@ -41,6 +46,10 @@ def load_data(csv_path: Path) -> pd.DataFrame:
 def run_dashboard(data_path: str):
     df = load_data(Path(data_path))
     df = preprocess_student_data(df)
+
+    # --------------------------------------------------
+    # PRINT REPORT
+    # --------------------------------------------------
 
     # ---------------- OVERVIEW ----------------
     metrics = overview_metrics(df)
@@ -96,6 +105,9 @@ def run_dashboard(data_path: str):
     print("✅ Student dashboard loaded successfully")
 
 
+# --------------------------------------------------
+# Entry Point
+# --------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
         description="Student Performance Analysis Dashboard"

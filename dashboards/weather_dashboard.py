@@ -10,6 +10,9 @@ import pandas as pd
 import sys
 from pathlib import Path
 
+# --------------------------------------------------
+# Resolve project paths
+# --------------------------------------------------
 # Add project root to Python path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(PROJECT_ROOT / "src"))
@@ -25,7 +28,9 @@ from src.weather_trends_analysis.report_generator import (
     recommendations,
 )
 
-
+# --------------------------------------------------
+# Data and Dashboard Logic
+# --------------------------------------------------
 def print_header(title: str):
     print("\n" + "=" * 50)
     print(title.center(50))
@@ -37,7 +42,6 @@ def load_data(csv_path: Path) -> pd.DataFrame:
         raise FileNotFoundError(f"Dataset not found: {csv_path}")
     return pd.read_csv(csv_path)
 
-
 def run_dashboard(data_path: str):
     df = load_data(Path(data_path))
     df = preprocess_weather_data(df)
@@ -48,6 +52,9 @@ def run_dashboard(data_path: str):
 
     print_header("WEATHER TRENDS ANALYSIS REPORT")
 
+    # --------------------------------------------------
+    # PRINT REPORT
+    # --------------------------------------------------
     # ---------------- OVERVIEW ----------------
     print("\n📊 OVERVIEW:")
     print("=" * 16)
@@ -93,6 +100,9 @@ def run_dashboard(data_path: str):
     print("✅ Weather dashboard loaded successfully")
 
 
+# --------------------------------------------------
+# Entry Point
+# --------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
         description="Weather Trends Analysis CLI Dashboard"
